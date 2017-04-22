@@ -1,1 +1,184 @@
-html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trigonometri regner</title>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!--My Css -->
+  <link rel="stylesheet" href="Style.css">
+  <title>DentalGrej</title>
+  <link rel="icon" type="image/png" href="Logo.ico">
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="main.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--    <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" />
+    <link rel="stylesheet" href="&#x2F;stylesheets&#x2F;calculator.css" type="text&#x2F;css" /><link media="print" rel="stylesheet" href="&#x2F;stylesheets&#x2F;print.css" type="text&#x2F;css" />
+    -->
+    <script src="/scripts/head.load.min.js"></script>
+    <script>
+        head.js('/scripts/jquery.min.js', '/scripts/application.js', '/scripts/raphael.min.js', '/scripts/cossincalc.min.js', '/scripts/jquery.deserialize.js', '/scripts/jquery.ba-bbq.min.js', '/scripts/calculator.js', 'https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML');
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <a class="logo"><img src="#" /></a>
+      
+      <ul class="nav">
+        <li><a href="#calculator"><span>Udregner</span></a></li>
+        <li><a class="disabled" href="#result"><span>Resultater</span></a></li>
+      </ul>
+    </div>
+    
+    <div id="main">
+      <noscript><div class="spotlight">Det ser ud som om at JavaScript ikke er aktiveret, det skal være slået til, før denne side kan bruges.</div></noscript>
+      
+<form id="Udregner" action="" method="get" class="pane" onreset="return false;">
+  <table class="variables">
+    <tr>
+      <th colspan="2">Vinkler</th>
+      <th colspan="2">Sider</th>
+    </tr>
+    
+      <tr>
+        <td><label for="angle_a">A:</label></td>
+        <td><input type="text" id="angle_a" name="angle_a" class="angle number" tabindex="1" /></td>
+        <td><label for="side_a">a:</label></td>
+        <td><input type="text" id="side_a" name="side_a" class="side number" tabindex="4" /></td>
+      </tr>
+    
+      <tr>
+        <td><label for="angle_b">B:</label></td>
+        <td><input type="text" id="angle_b" name="angle_b" class="angle number" tabindex="2" /></td>
+        <td><label for="side_b">b:</label></td>
+        <td><input type="text" id="side_b" name="side_b" class="side number" tabindex="5" /></td>
+      </tr>
+    
+      <tr>
+        <td><label for="angle_c">C:</label></td>
+        <td><input type="text" id="angle_c" name="angle_c" class="angle number" tabindex="3" /></td>
+        <td><label for="side_c">c:</label></td>
+        <td><input type="text" id="side_c" name="side_c" class="side number" tabindex="6" /></td>
+      </tr>
+    
+  </table>
+<!--
+  <div class="drawing">
+    <img src="/images/triangle_overlay_empty.png" usemap="#triangle_variables_map" alt="triangle drawing" title="Click somewhere on the drawing to focus the associated text field." />
+    <map name="triangle_variables_map" id="triangle_variables_map">
+      <area shape="circle" coords="25,153,32" alt="A" href="#angle_a" />
+      <area shape="circle" coords="151,25,32" alt="B" href="#angle_b" />
+      <area shape="circle" coords="278,112,32" alt="C" href="#angle_c" />
+      
+      <area shape="circle" coords="217,57,32" alt="a" href="#side_a" />
+      <area shape="circle" coords="156,142,32" alt="b" href="#side_b" />
+      <area shape="circle" coords="90,75,32" alt="c" href="#side_c" />
+    </map>
+  </div>
+-->  
+  <p class="buttons">
+    <input type="submit" class="commit" value="Calculate" />
+    <input type="button" value="Clear" id="clear" />
+  </p>
+  
+  <div id="errors"></div>
+</form>
+<div id="result" class="pane">
+  <div class="slideable">
+    <h3>Variables overview</h3>
+    <div class="pane">
+      <table class="variables">
+        <tr>
+          <th colspan="2">Angles</th>
+          <th colspan="2">Sides</th>
+          <th colspan="2">Altitudes</th>
+          <th colspan="2">Medians</th>
+          <th colspan="2">Angle bisectors</th>
+        </tr>
+        
+          <tr>
+            <td>A = </td>
+            <td id="angle_a_result" class="variable">&nbsp;</td>
+            <td>a = </td>
+            <td id="side_a_result" class="variable">&nbsp;</td>
+            <td>h<sub>A</sub> = </td>
+            <td id="altitude_a_result" class="variable">&nbsp;</td>
+            <td>m<sub>a</sub> = </td>
+            <td id="median_a_result" class="variable">&nbsp;</td>
+            <td>t<sub>A</sub> = </td>
+            <td id="anglebisector_a_result" class="variable">&nbsp;</td>
+          </tr>
+        
+          <tr>
+            <td>B = </td>
+            <td id="angle_b_result" class="variable">&nbsp;</td>
+            <td>b = </td>
+            <td id="side_b_result" class="variable">&nbsp;</td>
+            <td>h<sub>B</sub> = </td>
+            <td id="altitude_b_result" class="variable">&nbsp;</td>
+            <td>m<sub>b</sub> = </td>
+            <td id="median_b_result" class="variable">&nbsp;</td>
+            <td>t<sub>B</sub> = </td>
+            <td id="anglebisector_b_result" class="variable">&nbsp;</td>
+          </tr>
+        
+          <tr>
+            <td>C = </td>
+            <td id="angle_c_result" class="variable">&nbsp;</td>
+            <td>c = </td>
+            <td id="side_c_result" class="variable">&nbsp;</td>
+            <td>h<sub>C</sub> = </td>
+            <td id="altitude_c_result" class="variable">&nbsp;</td>
+            <td>m<sub>c</sub> = </td>
+            <td id="median_c_result" class="variable">&nbsp;</td>
+            <td>t<sub>C</sub> = </td>
+            <td id="anglebisector_c_result" class="variable">&nbsp;</td>
+          </tr>
+        
+      </table>
+      
+      <table>
+        <tr>
+          <th>Area</th>
+          <td class="variable" id="area_result">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>Circumference</th>
+          <td class="variable" id="circumference_result">&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="slideable">
+    <h3>Drawing</h3>
+    <div class="pane">
+      <div id="drawing"></div>
+    </div>
+  </div>
+  
+  <div class="slideable">
+    <h3>Formulae</h3>
+    <div class="pane">
+      <p>The following steps have been taken to calculate the result:</p>
+      <p id="calculation_steps"></p>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+    
+    <div id="footer">
+      
+    </div>
+  </body>
+</html>

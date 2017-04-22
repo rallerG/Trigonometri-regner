@@ -1,0 +1,220 @@
+/**
+ * ..
+ * Theme colors: Green 1: #009900, Green 2: #55CC44, Yellow: #FFCC00, Red: #FF0000, Blue 1: #0066FF, Blue 2: #6699FF
+ */
+
+/* global reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  border: none;
+}
+input {
+  outline: none;
+}
+body {
+  margin: 10px;
+  font: 14px/1 Verdana, Arial, Helvetica, sans-serif;
+}
+
+/* links */
+a {
+  color: #06f;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #69f;
+}
+
+/* text */
+h1, h2 {
+  font: 17px Arial, Helvetica, sans-serif;
+  color: #e72;
+  margin: 20px 0 -5px;
+}
+h3 {
+  font-size: 15px;
+  color: #666;
+}
+p, h3, #main .slideable, #main .slideable .pane, #main li {
+  margin: 7px 0;
+}
+p {
+  line-height: 1.5;
+}
+small {
+  font-size: 0.8em;
+}
+#main ul, #main ol {
+  padding-left: 25px;
+}
+
+/* slideables */
+#main .slideable {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding: 7px;
+}
+
+#main .slideable .pane {
+  margin-left: 12px;
+}
+#main .collapsed .pane, #main .collapsed .options {
+  display: none;
+}
+
+#main .slideable h3 {
+  cursor: pointer;
+  margin: 0;
+  padding-left: 12px;
+  background: url(/images/arrow_down.png) no-repeat left center;
+}
+#main .collapsed h3 {
+  background-image: url(/images/arrow_right.png);
+}
+
+/* forms */
+#calculator input.number {
+  margin: 6px;
+  padding: 5px 7px;
+  border: 1px solid #ccc;
+  border-top-color: #666;
+  border-right-color: #666;
+  background-color: #fff;
+  font: 14px Verdana, Arial, Helvetica, sans-serif;
+  text-align: right;
+  width: 163px;
+}
+#calculator input.focus {
+  margin: 5px;
+  border: 2px solid #0c0;
+}
+#calculator input.error {
+  margin: 5px;
+  border: 2px solid #f00;
+}
+
+#calculator .buttons input {
+  padding: 4px 8px;
+  font: 14px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+#calculator .buttons input.commit {
+  font-weight: bold;
+}
+
+/* tables */
+#main table {
+  margin: 20px;
+  border: none;
+}
+#main th {
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: left;
+}
+#main td {
+  padding: 3px;
+  vertical-align: middle;
+}
+
+/* options */
+#main div.options {
+  text-align: right;
+  font-size: 10px;
+}
+#main div.options a.disabled {
+  text-decoration: line-through;
+}
+#main .slideable div.options {
+  float: right;
+  color: #666;
+}
+
+/* header */
+#header {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  min-width: 900px;
+}
+#header .spotlight {
+  margin-left: 210px;
+  padding: 5px;
+  margin-bottom: 7px;
+  background-color: #fea;
+  border: 2px solid #f93;
+}
+#header .logo {
+  float: left;
+}
+#header .nav {
+  margin-left: 210px;
+  background-color: #5c4;
+  padding: 10px 10px 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#header .nav li {
+  display: block;
+  list-style-type: none;
+  float: left;
+  margin: 0 5px;
+}
+#header .nav li a {
+  font-weight: bold;
+  font-family: arial;
+  color: #fff;
+  display: block;
+  padding-left: 15px;
+}
+#header .nav li a span {
+  display: block;
+  padding: 13px 15px 10px 0;
+}
+#header .nav li a:hover, #header .nav li a.active {
+  background: url(/images/navigation_item_north_west.png) #fff no-repeat left top;
+  color: #666;
+  text-decoration: none;
+}
+#header .nav li a:hover span, #header .nav li a.active span {
+  background: url(/images/navigation_item_north_east.png) #fff no-repeat right top;
+}
+#header .nav li a.disabled, #header .nav li a.disabled:hover, #header .nav li a.disabled span, #header .nav li a.disabled:hover span {
+  color: #090;
+  background: none;
+  cursor: default;
+}
+
+/* main content */
+#main {
+  clear: both;
+  margin-bottom: 20px;
+  width: 900px;
+}
+#main .spotlight {
+  padding: 7px;
+  margin-bottom: 7px;
+  background-color: #fea;
+  border: 1px solid #f93;
+  text-align: center;
+}
+
+/* footer */
+#footer {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  font-size: 10px;
+}
+#footer p {
+  margin: 0 0 10px;
+}

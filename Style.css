@@ -1,0 +1,317 @@
+/* Alle Sider - START */
+
+html {
+	height: 100%;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+body {
+	background-color: #74c1ca;
+	background-size: cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+footer.page-footer {
+	background-color: #424242;
+	background-size: cover;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
+	padding: 0px;
+}
+
+footer ul li {
+	margin: 10px;
+}
+
+footer ul li a {
+	color: #B6B4B3;
+}
+
+footer ul li a:hover {
+	color: #fff;
+}
+
+footer.page-footer .footer-copyright {
+	padding: 0px;
+	background-color: #212121
+}
+
+footer .row {
+	margin-bottom: 0px;
+}
+
+footer #links {
+	margin-top: 40px;
+    font-size: 23px;
+	padding: 0px;
+}
+
+#footer-logo {
+	padding: 0px;
+}
+
+/* Alle Sider - SLUT */
+
+/* Index - Side - START */
+
+/* Index/Produkt - Basic - START */
+
+h1.header.center {
+	color: white;
+	padding-bottom: 20px;
+	text-shadow: 2px 4px 3px rgba(0,0,0,.9);
+}
+
+h5.header {
+	color: white;
+}
+
+/* Index/Produkt - Basic - SLUT */
+
+/* Index - Nav - START */
+
+nav {
+	background-color: White;
+	box-shadow: 0px 0px 20px 0px rgba(51, 51, 51, 0.8)
+}
+
+.nav-wrapper {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.nav-wrapper a {
+	color: black;
+	font-size: 16px;
+}
+
+.brand-logo {
+	z-index: 1;
+}
+
+/* Index - Nav - SLUT */
+
+/*Index - Banner - START */
+
+#index-banner {
+	background-image: url(Dentist.JPG);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	overflow: hidden;
+	text-align: center;
+	box-shadow: 0px 0px 7px rgba(0,0,0,.6);
+}
+
+#index-banner h5 {
+	text-shadow: 2px 4px 3px rgba(0,0,0,.9);
+}
+
+.btn {
+    line-height: 40px;
+    margin: 7.5px;
+    background-color: #269ac9;
+}
+
+.btn:hover {
+	background-color: #2BACE0;
+}
+
+#top-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #269ac9;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+#top-btn:hover {
+  background-color: #2BACE0;
+}
+/*Index - Banner - SLUT */
+
+/* Index - Containers med tekst - START */
+
+#index-info {
+	background-color: white;
+	padding: 0px 140px;
+	width: 100%;
+	box-shadow: 0px 7px 20px 0px rgba(51, 51, 51, 0.4);
+	max-width: 100%;
+}
+
+/* Index - Containers kun med tekst - SLUT */
+
+/* Index - Containers med billede/tekst * START */
+
+#index-pic {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	width: 100%;
+}
+
+.mirror {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.mirror-text {
+	width: 30%;
+}
+
+.mirror-image {
+	width: 70%;
+	padding: 4em;
+}
+
+#section-mirror {
+	padding: 0%;
+}
+/* Index - Containers med billede/tekst - SLUT */
+
+/*Index - Side - SLUT */
+
+/*Produkt - Side - START */
+
+/*Produkt - nav - START */
+
+.Produkt-nav {
+	margin-bottom: 70px;
+}
+/*Produkt - nav - SLUT */
+
+/*Produkt - Pakker - START */
+
+#Pakke-box-1 {
+	display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 70px;
+}
+
+#Box-1 {
+	margin-left: 180px;
+	background-color: white;
+}
+
+#Box-2 {
+	margin-left: 10px;
+	background-color: white;
+}
+
+#Box-3 {
+	margin-left: 10px;
+	background-color: white;
+}
+
+.Pakke-image {
+	width: 100%;
+    margin-bottom: 5px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+	background-color: #269ac9;
+}
+
+#submit-btn {
+	margin-left: 180px;
+}
+
+#test {
+	margin-left: 8em;
+}
+
+.icon-block #betalings-info {
+	font-size: 11px;
+	margin: 0;
+	margin-top: 2px;
+}
+
+.icon-block .btn {
+	margin: 0;
+}
+
+#shopping-cart {
+	margin-left: 180px;
+}
+
+/*Produkt - Pakker - SLUT */
+
+/*Produkt - Side - SLUT */
+
+/*Registrer - Side - START */
+
+#register {
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+#reg-box {
+	margin-bottom: 20px;
+	margin-top: 60px;
+}
+
+#register p {
+	display: inline;
+	font-size: 20px;
+}
+#register p.ptag {
+    text-align: left;
+    font-size: 16px;
+    display: inline;
+}
+
+fieldset {
+	margin-top: 20px;
+}
+
+/* Dette fjerner pillene ved input til postnr. */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*Registrer - Side - SLUT*/
+
+/*Login - Side - START*/
+#login {
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+#login-box {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+/*Login - Side - SLUT */
+
+/*regHandler - Side - START */
+
+.input-field {
+	margin: 0;
+}
+
+/*regHandler - Side - SLUT */
