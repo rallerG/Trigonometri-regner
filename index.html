@@ -1,111 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-          <!--Import Google Icon Font-->
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-          <!--Import materialize.css-->
-          <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-          <!--Let browser know website is optimized for mobile-->
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <!--My Css -->
-          <link rel="stylesheet" href="Style.css">
-          <title>Trigonometri-regner</title>
-          <!--Import jQuery before materialize.js-->
-          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-          <script type="text/javascript" src="js/materialize.min.js"></script>
-          <!-- Import JavaScript file-->
-          <script src="main.js"></script>
-          <!-- Latest compiled and minified CSS -->
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <img src="trekant.png" alt="Trekant" style="width:304px;height:228px;">
-        <form>
-             <table class="variabler">
-                 <tr>
-                     <th colspan="2">Vinkler</th>
-                     <th colspan="2">Sider</th>
-                 </tr>
-             
-                 <tr>
-                     <td><label for="vinkel_a">A:</label></td>
-                     <td><input type="text" id="vinkel_a" name="vinkel_a" class="vinkel nummer" tabindex="1" /></td>
-                     <td><label for="side_a">a:</label></td>
-                     <td><input type="text" id="side_a" name="side_a" class="side nummer" tabindex="4" /></td>
-                 </tr>
-             
-                 <tr>
-                     <td><label for="vinkel_b">B:</label></td>
-                     <td><input type="text" id="vinkel_b" name="vinkel_b" class="vinkel nummer" tabindex="2" /></td>
-                     <td><label for="side_b">b:</label></td>
-                     <td><input type="text" id="side_b" name="side_b" class="side nummer" tabindex="5" /></td>
-                 </tr>
-             
-                 <tr>
-                     <td><label for="vinkel_c">C:</label></td>
-                     <td><input type="text" id="vinkel_c" name="vinkel_c" class="vinkel nummer" tabindex="3" /></td>
-                     <td><label for="side_c">c:</label></td>
-                     <td><input type="text" id="side_c" name="side_c" class="side nummer" tabindex="6" /></td>
-                 </tr>
-             </table>
-            <p class="buttons">
-            <input type="submit" class="commit" value="Udregn" />
-            <input type="button" value="Nulstil" id="nulstil" />
-            </p>
-            <div id="errors"></div>
-        </form>
-
-        <div id="resultat" class="panel">
-      <div class="slideable">
-        <h3>Resultat</h3>
-        <div class="panel">
-          <table class="variabler">
-            <tr>
-              <th colspan="2">Vinkler</th>
-              <th colspan="2">Sider</th>
-              <th colspan="2">Højde</th>
-            </tr>
-            
-              <tr>
-                <td>A = </td>
-                <td id="vinkel_a_resultat" class="variabel">&nbsp;</td>
-                <td>a = </td>
-                <td id="side_a_resultat" class="variabel">&nbsp;</td>
-                <td>h<sub>A</sub> = </td>
-                <td id="højde_a_resultat" class="variabel">&nbsp;</td>
-              </tr>
-          
-              <tr>
-                <td>B = </td>
-                <td id="vinkel_b_resultat" class="variabel">&nbsp;</td>
-                <td>b = </td>
-                <td id="side_b_resultat" class="variabel">&nbsp;</td>
-                <td>h<sub>B</sub> = </td>
-                <td id="højde_b_resultat" class="variabel">&nbsp;</td>
-              </tr>
-          
-              <tr>
-                <td>C = </td>
-                <td id="vinkel_c_resultat" class="variabel">&nbsp;</td>
-                <td>c = </td>
-                <td id="side_c_resultat" class="variabel">&nbsp;</td>
-                <td>h<sub>C</sub> = </td>
-                <td id="højde_c_resultat" class="variabel">&nbsp;</td>
-              </tr>
-          
-          </table>
-          
-          <table>
-            <tr>
-              <th>Areal</th>
-              <td class="variabel" id="areal_resultat">&nbsp;</td>
-            </tr>
-            <tr>
-              <th>Omkreds</th>
-              <td class="variabel" id="omkreds_resultat">&nbsp;</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </body>
+<head>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <!--My Css -->
+      <link rel="stylesheet" href="Style.css">
+      <title>Trigonometri-regner</title>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <!-- Import JavaScript file-->
+      <script src="main.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <img src="trekant.png" alt="Trekant">
+  <form>
+    <table class="variabler">
+        <tr>
+            <th colspan="2">Vinkler</th>
+            <th colspan="2">Sider</th>
+        </tr>
+        <tr>
+            <td><label for="vinkel_a">A:</label></td>
+            <td><input type="text" id="vinkel_a" name="vinkel_a" class="vinkel nummer" tabindex="1" /></td>
+            <td><label for="side_a">a:</label></td>
+            <td><input type="text" id="side_a" name="side_a" class="side nummer" tabindex="4" /></td>
+        </tr>
+        <tr>
+            <td><label for="vinkel_b">B:</label></td>
+            <td><input type="text" id="vinkel_b" name="vinkel_b" class="vinkel nummer" tabindex="2" /></td>
+            <td><label for="side_b">b:</label></td>
+            <td><input type="text" id="side_b" name="side_b" class="side nummer" tabindex="5" /></td>
+        </tr>
+        <tr>
+            <td><label for="vinkel_c">C:</label></td>
+            <td><input type="text" id="vinkel_c" name="vinkel_c" class="vinkel nummer" tabindex="3" /></td>
+            <td><label for="side_c">c:</label></td>
+            <td><input type="text" id="side_c" name="side_c" class="side nummer" tabindex="6" /></td>
+        </tr>
+    </table>
+      <p class="buttons">
+      <input type="submit" class="btn commit" value="Udregn" />
+      <input type="button" class="btn" value="Nulstil" id="nulstil" />
+      </p>
+      <div id="errors"></div>
+  </form>
+<div id="resultat" class="panel">
+  <div class="slideable">
+    <h3>Resultat</h3>
+    <div class="panel">
+      <table class="variabler">
+        <tr>
+          <th colspan="2">Vinkler</th>
+          <th colspan="2">Sider</th>
+          <th colspan="2">Højde</th>
+        </tr>
+          <tr>
+            <td>A = </td>
+            <td id="vinkel_a_resultat" class="variabel">&nbsp;</td>
+            <td>a = </td>
+            <td id="side_a_resultat" class="variabel">&nbsp;</td>
+            <td>h<sub>A</sub> = </td>
+            <td id="højde_a_resultat" class="variabel">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>B = </td>
+            <td id="vinkel_b_resultat" class="variabel">&nbsp;</td>
+            <td>b = </td>
+            <td id="side_b_resultat" class="variabel">&nbsp;</td>
+            <td>h<sub>B</sub> = </td>
+            <td id="højde_b_resultat" class="variabel">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>C = </td>
+            <td id="vinkel_c_resultat" class="variabel">&nbsp;</td>
+            <td>c = </td>
+            <td id="side_c_resultat" class="variabel">&nbsp;</td>
+            <td>h<sub>C</sub> = </td>
+            <td id="højde_c_resultat" class="variabel">&nbsp;</td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th>Areal</th>
+          <td class="variabel" id="areal_resultat">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>Omkreds</th>
+          <td class="variabel" id="omkreds_resultat">&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+<footer class="side-footer">
+  <div class="footer-copyright">
+    <div id="footer-tekst" class="container">
+      <p>Eksamens-projekt udført af Rasmus Gregersen og Christoffer Adrian Detlef 2017</p>
+    </div>
+  </div>
+</footer>
 </html>
