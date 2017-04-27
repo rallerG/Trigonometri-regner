@@ -91,13 +91,14 @@ function udregn() {
 //VED ANDRE VÆRDIER ER ALLE VINKLER NaN
 function udregnTreVinkler() {
     console.log("udregner 3 vinkler ", A, B, C);
-    A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
+    A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c))*(180/Math.PI);    //Den sidste del omdanner radianer til grader
+                                                                                            //Dette er fordi at Math.cos() og lignende har radianer som output
     console.log(A);
 
-    B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
+    B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c))*(180/Math.PI);
     console.log(B);
 
-    C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
+    C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b))*(180/Math.PI);
     console.log(C);
 };
 
@@ -110,55 +111,56 @@ function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sid
             //udregning af a
     }
     if (A > 0) {
-        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
-        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
+        B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c))*(180/Math.PI);
+        C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b))*(180/Math.PI);
     } else if (B > 0) {
-        A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
-        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
+        A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c))*(180/Math.PI);
+        C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b))*(180/Math.PI);
     } else {
-        A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
-        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
+        A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c))*(180/Math.PI);
+        B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c))*(180/Math.PI);
     }
 };
 
+//Udregning af en vinkel og 2 sider
 function udregnToSider() {
     if (A > 0 && B > 0) {
-        C = 180 - A - B;
-        if (a > 0) {
-           b = (Math.sin(B)*a)/Math.sin(A);
-           c = (Math.sin(C)*a)/Math.sin(A);
-       } else if (b > 0) {
-           a = (Math.sin(A)*b)/Math.sin(B);
-           c = (Math.sin(C)*b)/Math.sin(B);
-       } else {
-           a = (Math.sin(A)*c)/Math.sin(C);
-           b = (Math.sin(B)*c)/Math.sin(C);
+        C = 180 - A - B;                        //udregner vinkel C
+        if (a > 0) {                            //udregner side b & c
+           b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+           c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+       } else if (b > 0) {                      //udregner side a & c
+           a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
+           c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
+       } else {                                //udregner side a & b
+           a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
+           b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
        }
 
     } else if (B > 0 && C > 0) {
-       A = 180 - B - C;
+       A = 180 - B - C;                       //udregner vinkel A
        if (a > 0) {
-           b = (Math.sin(B)*a)/Math.sin(A);
-           c = (Math.sin(C)*a)/Math.sin(A);
+           b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+           c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
        } else if (b > 0) {
-           a = (Math.sin(A)*b)/Math.sin(B);
-           c = (Math.sin(C)*b)/Math.sin(B);
+           a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
+           c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
        } else {
-           a = (Math.sin(A)*c)/Math.sin(C);
-           b = (Math.sin(B)*c)/Math.sin(C);
+           a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
+           b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
        }
-       
+
     } else {
-        B = 180 - A - C;
+        B = 180 - A - C;                        //udregner vinkel B
         if (a > 0) {
-            b = (Math.sin(B)*a)/Math.sin(A);
-            c = (Math.sin(C)*a)/Math.sin(A);
+            b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+            c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
         } else if (b > 0) {
-            a = (Math.sin(A)*b)/Math.sin(B);
-            c = (Math.sin(C)*b)/Math.sin(B);
+            a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
+            c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
         } else {
-            a = (Math.sin(A)*c)/Math.sin(C);
-            b = (Math.sin(B)*c)/Math.sin(C);
+            a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
+            b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
         }
     }
     
