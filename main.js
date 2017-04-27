@@ -109,7 +109,7 @@ function udregnToVinkler() {    //VIRKER IKKE
                 C = 180 - A - B;
                 c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
             } else {
-                c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos((C*Math.PI)/180)); ///////////Skal muligvis omregnes til grader
+                c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos((C*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
                 B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c))*(180/Math.PI));
             }
@@ -119,7 +119,7 @@ function udregnToVinkler() {    //VIRKER IKKE
                 B = 180 - A - C;
                 b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
             } else if (B > 0) {
-                b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos((B*Math.PI)/180)); ///////////Skal muligvis omregnes til grader
+                b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos((B*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
                 C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
             } else {
@@ -136,6 +136,10 @@ function udregnToVinkler() {    //VIRKER IKKE
                 A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
                 C = 180 - A - B;
                 c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+            } else {
+                B = (Math.asin((Math.sin(C)*b)/c))*(180/Math.PI);
+                A = 180 - B - C;
+                a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
             }
     }
 };
