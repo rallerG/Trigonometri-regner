@@ -76,10 +76,10 @@ function udregn() {
             udregnTreVinkler(); break;
         case 2:
             console.log("case 2");
-            UdregnToVinkler(); break;
+            udregnToVinkler(); break;
         case 1:
             console.log("case 1");
-            UdregnToSider(); break;
+            udregnToSider(); break;
         default:
             console.log("Switch failed");
             return false;
@@ -98,14 +98,16 @@ function udregnTreVinkler() {
 
 };
 
-function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
+function udregnToVinkler() {    //VIRKER IKKE
     if (a > 0 && b > 0) {
-            if (A > 0){
+            if (A > 0){             
                 B = (Math.asin((Math.sin(A)*b)/a))*(180/Math.PI);
                 C = 180 - A - B;
+                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
             } else if (B > 0) {
                 A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
-                C = 180 - A - B
+                C = 180 - A - B;
+                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
             } else {
                 c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos(C)); ///////////Skal muligvis omregnes til grader
                 A = (Math.asin((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
@@ -136,22 +138,10 @@ function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sid
                 c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
             }
     }
-
-    
-    if (A > 0) {
-        B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
-        C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
-    } else if (B > 0) {
-        A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-        C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
-    } else {
-        A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-        B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
-    }
 };
 
 //Udregning af en vinkel og 2 sider
-function udregnToSider() {
+function udregnToSider() {          //VIRKER IKKE
     if (A > 0 && B > 0) {
         C = 180 - A - B;                        //udregner vinkel C
         if (a > 0) {                            //udregner side b & c
