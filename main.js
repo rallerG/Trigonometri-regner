@@ -13,7 +13,7 @@
 
 
 
-function indsaetResultat(e) {
+function startProgram(e) {
     antalSider = 0; //Angiv antal sider som brugeren har indtastet
     e.preventDefault(); //Forhindre at siden reloader
     input_A = parseFloat(document.getElementById("vinkel_a").value);
@@ -49,12 +49,17 @@ function indsaetResultat(e) {
     antalSider ++;
     }
 
+    udregn;
+    udregnHøjde;
+    udregnAreal;
+    udregnOmkreds;
+    visResultat;
 
 };
 
 
 
-document.addEventListener('submit', indsaetResultat);   //Kører funktionen når der trykkes på submit
+document.addEventListener('submit', startProgram);   //Kører funktionen når der trykkes på submit
 
 
 //Alt herover virker
@@ -66,12 +71,16 @@ document.addEventListener('submit', indsaetResultat);   //Kører funktionen når
 function udregn() {
     switch (antalSider) {
         case 3:
+            console.log("case 3");
             udregnTreVinkler(); break;
         case 2:
+            console.log("case 2");
             UdregnToVinkler(); break;
         case 1:
+            console.log("case 1");
             UdregnToSider(); break;
         default:
+            console.log("Switch failed");
             return false;
     };
 };
@@ -79,20 +88,20 @@ function udregn() {
 
 
 function udregnTreVinkler() {
-    A = acos((b^2+c^2-a^2)/2*b*c);
-    B = acos((a^2+c^2-b^2)/2*b*c);
-    C = acos((a^2+b^2-c^2)/2*b*c);
+    A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
+    B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
+    C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
 };
 function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
     if (A > 0) {
-        B = acos((a^2+c^2-b^2)/2*b*c);
-        C = acos((a^2+b^2-c^2)/2*b*c);
+        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
+        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
     } else if (B > 0) {
-        A = acos((b^2+c^2-a^2)/2*b*c);
-        C = acos((a^2+b^2-c^2)/2*b*c);
+        A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
+        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
     } else {
-        A = acos((b^2+c^2-a^2)/2*b*c);
-        B = acos((a^2+c^2-b^2)/2*b*c);
+        A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
+        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
     }
 };
 function udregnToSider() {
@@ -128,7 +137,7 @@ function visResultat() {
     document.getElementById("omkreds_resultat").innerHTML = omkreds;
 };
 
-//Mangler at tjekke om det virker
+//Nulstiller alle variabler
 function nustil() {
     A = 0;
     a = 0;
