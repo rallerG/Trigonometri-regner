@@ -119,7 +119,7 @@ function udregnToVinkler() {    //VIRKER IKKE
                 B = 180 - A - C;
                 b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
             } else if (B > 0) {
-                b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos(B)); ///////////Skal muligvis omregnes til grader
+                b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos((B*Math.PI)/180)); ///////////Skal muligvis omregnes til grader
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
                 C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
             } else {
