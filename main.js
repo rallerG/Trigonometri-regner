@@ -111,7 +111,7 @@ function udregnToVinkler() {    //VIRKER IKKE
             } else {
                 c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos((C*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-                B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c))*(180/Math.PI));
+                B = 180 - C - B;
             }
         } else if (a > 0 && c > 0) {
             if (A > 0) {
@@ -121,7 +121,7 @@ function udregnToVinkler() {    //VIRKER IKKE
             } else if (B > 0) {
                 b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos((B*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-                C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
+                C = 180 - A - B;
             } else {
                 A = (Math.asin((Math.sin(C)*a)/c))*(180/Math.PI);
                 B = 180 - A - C;
