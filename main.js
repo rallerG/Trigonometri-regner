@@ -87,29 +87,40 @@ function udregn() {
 };
 
 
-//VIRKER IKKE, OG VED IKKE HVORFOR. HVIS MAN INDTASTER a=3, b=4, c=5, SÅ FÅR MAN AT A & B ER NaN OG C BLIVER REGNET UD.
-//VED ANDRE VÆRDIER ER ALLE VINKLER NaN
+
 function udregnTreVinkler() {
     console.log("udregner 3 vinkler ", A, B, C);
-    A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c))*(180/Math.PI);    //Den sidste del omdanner radianer til grader
+    A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);    //Den sidste del omdanner radianer til grader
                                                                                             //Dette er fordi at Math.cos() og lignende har radianer som output
     console.log(A);
 
-    B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c))*(180/Math.PI);
+    B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
     console.log(B);
 
-    C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b))*(180/Math.PI);
+    C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
     console.log(C);
 };
 
 function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
     if (a > 0 && b > 0) {
-            //udregning af c
+            if (A > 0){
+                B = (Math.asin((Math.sin(A)*b)/a))*(180/Math.PI);
+                C = 180 - A - B;
+            } else if (B > 0) {
+                A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
+                C = 180 - A - B
+            } else {
+                c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos(C)); ///////////Skal muligvis omregnes til grader
+                A = (Math.asin((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
+                B = (Math.asin((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
+            }
         } else if (a > 0 && c > 0) {
             //udregning af b
         } else {
             //udregning af a
     }
+
+    
     if (A > 0) {
         B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c))*(180/Math.PI);
         C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b))*(180/Math.PI);
@@ -167,9 +178,9 @@ function udregnToSider() {
 };
 
 function udregnHøjde() {
-    ha = ((b*Math.sin(C))/MAth.sin(90))*(180/Math.PI);
-    hb = ((c*Math.sin(A))/MAth.sin(90))*(180/Math.PI);
-    hc = ((a*Math.sin(B))/MAth.sin(90))*(180/Math.PI);
+    ha = (b*Math.sin(C))/Math.sin(90);
+    hb = (c*Math.sin(A))/Math.sin(90);
+    hc = (a*Math.sin(B))/Math.sin(90);
 };
 
 function udregnAreal() {
