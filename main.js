@@ -112,9 +112,29 @@ function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sid
                 B = (Math.asin((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
             }
         } else if (a > 0 && c > 0) {
-            //udregning af b
+            if (A > 0) {
+                C = (Math.asin((Math.sin(A)*c)/a))*(180/Math.PI);
+                B = 180 - A - C;
+                b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+            } else if (B > 0) {
+                b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos(B)); ///////////Skal muligvis omregnes til grader
+                A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
+                C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
+            } else {
+                A = (Math.asin((Math.sin(C)*a)/c))*(180/Math.PI);
+                B = 180 - A - C;
+                b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+            }
         } else {
-            //udregning af a
+            if ( A > 0) {
+                B = (Math.asin((Math.sin(A)*b)/a))*(180/Math.PI);
+                C = 180 - A - B;
+                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+            } else if (B > 0) {
+                A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
+                C = 180 - A - B;
+                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+            }
     }
 
     
