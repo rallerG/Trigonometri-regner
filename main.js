@@ -87,13 +87,28 @@ function udregn() {
 };
 
 
-
+//VIRKER IKKE, OG VED IKKE HVORFOR. HVIS MAN INDTASTER a=3, b=4, c=5, SÅ FÅR MAN AT A & B ER NaN OG C BLIVER REGNET UD.
+//VED ANDRE VÆRDIER ER ALLE VINKLER NaN
 function udregnTreVinkler() {
+    console.log("udregner 3 vinkler ", A, B, C);
     A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
+    console.log(A);
+
     B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
+    console.log(B);
+
     C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
+    console.log(C);
 };
+
 function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
+    if (a > 0 && b > 0) {
+            //udregning af c
+        } else if (a > 0 && c > 0) {
+            //udregning af b
+        } else {
+            //udregning af a
+    }
     if (A > 0) {
         B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
         C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
@@ -105,9 +120,50 @@ function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sid
         B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
     }
 };
+
 function udregnToSider() {
-    // Indsæt udregninger
+    if (A > 0 && B > 0) {
+        C = 180 - A - B;
+        if (a > 0) {
+           b = (Math.sin(B)*a)/Math.sin(A);
+           c = (Math.sin(C)*a)/Math.sin(A);
+       } else if (b > 0) {
+           a = (Math.sin(A)*b)/Math.sin(B);
+           c = (Math.sin(C)*b)/Math.sin(B);
+       } else {
+           a = (Math.sin(A)*c)/Math.sin(C);
+           b = (Math.sin(B)*c)/Math.sin(C);
+       }
+
+    } else if (B > 0 && C > 0) {
+       A = 180 - B - C;
+       if (a > 0) {
+           b = (Math.sin(B)*a)/Math.sin(A);
+           c = (Math.sin(C)*a)/Math.sin(A);
+       } else if (b > 0) {
+           a = (Math.sin(A)*b)/Math.sin(B);
+           c = (Math.sin(C)*b)/Math.sin(B);
+       } else {
+           a = (Math.sin(A)*c)/Math.sin(C);
+           b = (Math.sin(B)*c)/Math.sin(C);
+       }
+       
+    } else {
+        B = 180 - A - C;
+        if (a > 0) {
+            b = (Math.sin(B)*a)/Math.sin(A);
+            c = (Math.sin(C)*a)/Math.sin(A);
+        } else if (b > 0) {
+            a = (Math.sin(A)*b)/Math.sin(B);
+            c = (Math.sin(C)*b)/Math.sin(B);
+        } else {
+            a = (Math.sin(A)*c)/Math.sin(C);
+            b = (Math.sin(B)*c)/Math.sin(C);
+        }
+    }
+    
 };
+
 function udregnHøjde() {
     // Indsæt udregninger
 };
