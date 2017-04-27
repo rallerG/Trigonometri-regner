@@ -51,9 +51,9 @@ function startProgram(e) {
     }
 
     udregn();
-    udregnHøjde();
-    udregnAreal();
     udregnOmkreds();
+    udregnAreal();
+    udregnHøjde();
     visResultat();
 
 };
@@ -89,16 +89,13 @@ function udregn() {
 
 
 function udregnTreVinkler() {
-    console.log("udregner 3 vinkler ", A, B, C);
+    
     A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);    //Den sidste del omdanner radianer til grader
                                                                                             //Dette er fordi at Math.cos() og lignende har radianer som output
-    console.log(A);
-
     B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
-    console.log(B);
 
     C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
-    console.log(C);
+
 };
 
 function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
@@ -177,19 +174,19 @@ function udregnToSider() {
     
 };
 
-function udregnHøjde() {
-    ha = (b*Math.sin(C))/Math.sin(90);
-    hb = (c*Math.sin(A))/Math.sin(90);
-    hc = (a*Math.sin(B))/Math.sin(90);
-};
-
-function udregnAreal() {
-    areal = (a * ha) / 2;
-};
 function udregnOmkreds() {
     omkreds = a + b + c;
 };
-
+//Til at udregne arealet gør vi brug af Herons formel
+function udregnAreal() {
+    s = omkreds/2;
+    areal = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+};
+function udregnHøjde() {
+    ha = (areal*2)/a;
+    hb = (areal*2)/b;
+    hc = (areal*2)/c;
+};
 
 
 
