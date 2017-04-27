@@ -1,13 +1,13 @@
 //Mangler udregning
     var A = 0;
     var a = 0;
-    var ha = 0;
+    var hA = 0;
     var B = 0;
     var b = 0;
-    var hb = 0;
+    var hB = 0;
     var C = 0;
     var c = 0;
-    var hc = 0;
+    var hC = 0;
     var areal = 0;
     var omkreds = 0;
 
@@ -193,9 +193,9 @@ function udregnAreal() {
     areal = Math.sqrt(s*(s-a)*(s-b)*(s-c));
 };
 function udregnHøjde() {
-    ha = (areal*2)/a;
-    hb = (areal*2)/b;
-    hc = (areal*2)/c;
+    hA = (areal*2)/a;
+    hB = (areal*2)/b;
+    hC = (areal*2)/c;
 };
 
 
@@ -205,13 +205,13 @@ function udregnHøjde() {
 function visResultat() {
     document.getElementById("vinkel_a_resultat").innerHTML = A;
     document.getElementById("side_a_resultat").innerHTML = a;
-    document.getElementById("højde_a_resultat").innerHTML = ha;
+    document.getElementById("højde_a_resultat").innerHTML = hA;
     document.getElementById("vinkel_b_resultat").innerHTML = B;
     document.getElementById("side_b_resultat").innerHTML = b;
-    document.getElementById("højde_b_resultat").innerHTML = hb;
+    document.getElementById("højde_b_resultat").innerHTML = hB;
     document.getElementById("vinkel_c_resultat").innerHTML = C;
     document.getElementById("side_c_resultat").innerHTML = c;
-    document.getElementById("højde_c_resultat").innerHTML = hc;
+    document.getElementById("højde_c_resultat").innerHTML = hC;
     document.getElementById("areal_resultat").innerHTML = areal;
     document.getElementById("omkreds_resultat").innerHTML = omkreds;
 };
@@ -220,13 +220,13 @@ function visResultat() {
 function nustil() {
     A = 0;
     a = 0;
-    ha = 0;
+    hA = 0;
     B = 0;
     b = 0;
-    hb = 0;
+    hB = 0;
     C = 0;
     c = 0;
-    hc = 0;
+    hC = 0;
     areal = 0;
     omkreds = 0;
 };
