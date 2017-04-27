@@ -14,6 +14,7 @@
 
 
 function startProgram(e) {
+    nustil();
     antalSider = 0; //Angiv antal sider som brugeren har indtastet
     e.preventDefault(); //Forhindre at siden reloader
     input_A = parseFloat(document.getElementById("vinkel_a").value);
@@ -49,11 +50,11 @@ function startProgram(e) {
     antalSider ++;
     }
 
-    udregn;
-    udregnHøjde;
-    udregnAreal;
-    udregnOmkreds;
-    visResultat;
+    udregn();
+    udregnHøjde();
+    udregnAreal();
+    udregnOmkreds();
+    visResultat();
 
 };
 
@@ -89,19 +90,19 @@ function udregn() {
 
 function udregnTreVinkler() {
     A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
-    B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
-    C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
+    B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
+    C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
 };
 function udregnToVinkler() {    //Mangler at tjekke om vi har de nødvendige sider til at udregne
     if (A > 0) {
-        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
-        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
+        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
+        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
     } else if (B > 0) {
         A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
-        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*b*c);
+        C = Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/2*a*b);
     } else {
         A = Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/2*b*c);
-        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*b*c);
+        B = Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/2*a*c);
     }
 };
 function udregnToSider() {
