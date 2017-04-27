@@ -109,9 +109,9 @@ function udregnToVinkler() {    //VIRKER IKKE
                 C = 180 - A - B;
                 c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
             } else {
-                c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos(C)); ///////////Skal muligvis omregnes til grader
-                A = (Math.asin((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-                B = (Math.asin((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c)))*(180/Math.PI);
+                c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos((C*Math.PI)/180)); ///////////Skal muligvis omregnes til grader
+                A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
+                B = (Math.acos((Math.pow(a, 2)+Math.pow(c, 2)-Math.pow(b, 2))/(2*a*c))*(180/Math.PI));
             }
         } else if (a > 0 && c > 0) {
             if (A > 0) {
