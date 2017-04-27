@@ -167,7 +167,9 @@ function udregnToSider() {
 };
 
 function udregnHøjde() {
-    // Indsæt udregninger
+    ha = ((b*Math.sin(C))/MAth.sin(90))*(180/Math.PI);
+    hb = ((c*Math.sin(A))/MAth.sin(90))*(180/Math.PI);
+    hc = ((a*Math.sin(B))/MAth.sin(90))*(180/Math.PI);
 };
 
 function udregnAreal() {
