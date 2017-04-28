@@ -11,7 +11,15 @@
     var areal = 0;
     var omkreds = 0;
 
+function klik()
+{
+    if( Array.prototype.slice.call(document.querySelectorAll('.vinkelogsider')).map(el => el.value).filter(val => val != "").length === 3 ) {
 
+    }
+    else {
+        alert('Du SKAL vælge 3 parameter');
+    }
+}
 
 function startProgram(e) {
     nustil();
