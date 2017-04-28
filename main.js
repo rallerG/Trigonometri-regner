@@ -215,17 +215,17 @@ function udregnHøjde() {
 // Indsæt alle resultaterne på siden
 
 function visResultat() {
-    document.getElementById("vinkel_a_resultat").innerHTML = A;
-    document.getElementById("side_a_resultat").innerHTML = a;
-    document.getElementById("højde_a_resultat").innerHTML = hA;
-    document.getElementById("vinkel_b_resultat").innerHTML = B;
-    document.getElementById("side_b_resultat").innerHTML = b;
-    document.getElementById("højde_b_resultat").innerHTML = hB;
-    document.getElementById("vinkel_c_resultat").innerHTML = C;
-    document.getElementById("side_c_resultat").innerHTML = c;
-    document.getElementById("højde_c_resultat").innerHTML = hC;
-    document.getElementById("areal_resultat").innerHTML = areal;
-    document.getElementById("omkreds_resultat").innerHTML = omkreds;
+    document.getElementById("vinkel_a_resultat").innerHTML = round(A);
+    document.getElementById("side_a_resultat").innerHTML = round(a);
+    document.getElementById("højde_a_resultat").innerHTML = round(hA);
+    document.getElementById("vinkel_b_resultat").innerHTML = round(B);
+    document.getElementById("side_b_resultat").innerHTML = round(b);
+    document.getElementById("højde_b_resultat").innerHTML = round(hB);
+    document.getElementById("vinkel_c_resultat").innerHTML = round(C);
+    document.getElementById("side_c_resultat").innerHTML = round(c);
+    document.getElementById("højde_c_resultat").innerHTML = round(hC);
+    document.getElementById("areal_resultat").innerHTML = round(areal);
+    document.getElementById("omkreds_resultat").innerHTML = round(omkreds);
 };
 
 //Nulstiller alle variabler
@@ -242,3 +242,6 @@ function nustil() {
     areal = 0;
     omkreds = 0;
 };
+
+//Her runder vi vores resultat ned til 2 decimaler
+const round = x => Math.round(x * 100) / 100
