@@ -101,45 +101,45 @@ function udregnTreVinkler() {
 function udregnToVinkler() {    //VIRKER IKKE
     if (a > 0 && b > 0) {
             if (A > 0){             
-                B = (Math.asin((Math.sin(A)*b)/a))*(180/Math.PI);
+                B = (Math.asin((Math.sin((A/180)*Math.PI)*b)/a))*(180/Math.PI);
                 C = 180 - A - B;
-                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+                c = ((Math.sin((C/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
             } else if (B > 0) {
-                A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
+                A = (Math.asin((Math.sin((B/180)*Math.PI)*a)/b))*(180/Math.PI);
                 C = 180 - A - B;
-                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+                c = ((Math.sin((C/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
             } else {
                 c = Math.sqrt(Math.pow(a, 2)+Math.pow(b, 2)-2*a*b*Math.cos((C*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
-                B = 180 - C - B;
+                B = 180 - C - A;
             }
         } else if (a > 0 && c > 0) {
             if (A > 0) {
-                C = (Math.asin((Math.sin(A)*c)/a))*(180/Math.PI);
+                C = (Math.asin((Math.sin((A/180)*Math.PI)*c)/a))*(180/Math.PI);
                 B = 180 - A - C;
-                b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+                b = ((Math.sin((B/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
             } else if (B > 0) {
                 b = Math.sqrt(Math.pow(a, 2)+Math.pow(c, 2)-2*a*c*Math.cos((B*Math.PI)/180));
                 A = (Math.acos((Math.pow(b, 2)+Math.pow(c, 2)-Math.pow(a, 2))/(2*b*c)))*(180/Math.PI);
                 C = 180 - A - B;
             } else {
-                A = (Math.asin((Math.sin(C)*a)/c))*(180/Math.PI);
+                A = (Math.asin((Math.sin((C/180)*Math.PI)*a)/c))*(180/Math.PI);
                 B = 180 - A - C;
-                b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
+                b = ((Math.sin((B/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
             }
         } else {
             if ( A > 0) {
-                B = (Math.asin((Math.sin(A)*b)/a))*(180/Math.PI);
-                C = 180 - A - B;
-                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+                a = Math.sqrt(Math.pow(b, 2)+Math.pow(c, 2)-2*b*c*Math.cos((A*Math.PI)/180));
+                C = (Math.acos((Math.pow(a, 2)+Math.pow(b, 2)-Math.pow(c, 2))/(2*a*b)))*(180/Math.PI);
+                B = 180 - A - C;
             } else if (B > 0) {
-                A = (Math.asin((Math.sin(B)*a)/b))*(180/Math.PI);
-                C = 180 - A - B;
-                c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+                C = (Math.asin((Math.sin((B/180)*Math.PI)*c)/b))*(180/Math.PI);
+                A = 180 - C - B;
+                a = ((Math.sin((A/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
             } else {
-                B = (Math.asin((Math.sin(C)*b)/c))*(180/Math.PI);
+                B = (Math.asin((Math.sin((C/180)*Math.PI)*b)/c))*(180/Math.PI);
                 A = 180 - B - C;
-                a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
+                a = ((Math.sin((A/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
             }
     }
 };
@@ -149,40 +149,40 @@ function udregnToSider() {          //VIRKER IKKE
     if (A > 0 && B > 0) {
         C = 180 - A - B;                        //udregner vinkel C
         if (a > 0) {                            //udregner side b & c
-           b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
-           c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+           b = ((Math.sin((B/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
+           c = ((Math.sin((C/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
        } else if (b > 0) {                      //udregner side a & c
-           a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
-           c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
+           a = ((Math.sin((A/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
+           c = ((Math.sin((C/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
        } else {                                //udregner side a & b
-           a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
-           b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
+           a = ((Math.sin((A/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
+           b = ((Math.sin((B/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
        }
 
     } else if (B > 0 && C > 0) {
        A = 180 - B - C;                       //udregner vinkel A
        if (a > 0) {
-           b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
-           c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+           b = ((Math.sin((B/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
+           c = ((Math.sin((C/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
        } else if (b > 0) {
-           a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
-           c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
+           a = ((Math.sin((A/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
+           c = ((Math.sin((C/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
        } else {
-           a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
-           b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
+           a = ((Math.sin((A/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
+           b = ((Math.sin((B/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
        }
 
     } else {
         B = 180 - A - C;                        //udregner vinkel B
         if (a > 0) {
-            b = ((Math.sin(B)*a)/Math.sin(A))*(180/Math.PI);
-            c = ((Math.sin(C)*a)/Math.sin(A))*(180/Math.PI);
+            b = ((Math.sin((B/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
+            c = ((Math.sin((C/180)*Math.PI)*a)/Math.sin((A/180)*Math.PI));
         } else if (b > 0) {
-            a = ((Math.sin(A)*b)/Math.sin(B))*(180/Math.PI);
-            c = ((Math.sin(C)*b)/Math.sin(B))*(180/Math.PI);
+            a = ((Math.sin((A/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
+            c = ((Math.sin((C/180)*Math.PI)*b)/Math.sin((B/180)*Math.PI));
         } else {
-            a = ((Math.sin(A)*c)/Math.sin(C))*(180/Math.PI);
-            b = ((Math.sin(B)*c)/Math.sin(C))*(180/Math.PI);
+            a = ((Math.sin((A/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
+            b = ((Math.sin((B/180)*Math.PI)*c)/Math.sin((C/180)*Math.PI));
         }
     }
     
