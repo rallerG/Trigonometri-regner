@@ -11,19 +11,11 @@
     var areal = 0;
     var omkreds = 0;
 
-function klik()
-{
-    if( Array.prototype.slice.call(document.querySelectorAll('.vinkelogsider')).map(el => el.value).filter(val => val != "").length === 3 ) {
-
-    }
-    else {
-        alert('Du SKAL vælge 3 parameter');
-    }
-}
 
 function startProgram(e) {
     nustil();
     antalSider = 0; //Angiv antal sider som brugeren har indtastet
+    antalVinkler = 0;
     e.preventDefault(); //Forhindre at siden reloader
     input_A = parseFloat(document.getElementById("vinkel_a").value);
     input_a = parseFloat(document.getElementById("side_a").value);
@@ -38,6 +30,7 @@ function startProgram(e) {
     //Her tjekker vi om inputet har værdien ikke et NaN, (altså om det er et nummer)
     if (!isNaN(input_A)) {
     A = input_A;
+    antalVinkler ++;
     }
     if (!isNaN(input_a)) {
     a = input_a;
@@ -45,6 +38,7 @@ function startProgram(e) {
     }
     if (!isNaN(input_B)) {
     B = input_B;
+    antalVinkler ++;
     }
     if (!isNaN(input_b)) {
     b = input_b;
@@ -52,28 +46,29 @@ function startProgram(e) {
     }
     if (!isNaN(input_C)) {
     C = input_C;
+    antalVinkler ++;
     }
     if (!isNaN(input_c)) {
     c = input_c;
     antalSider ++;
     }
 
-    udregn();
-    udregnOmkreds();
-    udregnAreal();
-    udregnHøjde();
-    visResultat();
+    if (antalSider > 0 && antalSider + antalVinkler > 2) {
+        udregn();
+        udregnOmkreds();
+        udregnAreal();
+        udregnHøjde();
+        visResultat();
+    } else {
+        alert("Du SKAL vælge mindst 3 parameter, hvor der er mindst 1 side");
+    }
+    
 
 };
 
 
 
 document.addEventListener('submit', startProgram);   //Kører funktionen når der trykkes på submit
-
-
-//Alt herover virker
-//------------------------------------------------------------------------------
-
 
 
 // Her vælger vi hvilken regnemetode vi skal anvende, baseret på antallet af sider, som brugeren indtastede
@@ -106,7 +101,7 @@ function udregnTreVinkler() {
 
 };
 
-function udregnToVinkler() {    //VIRKER IKKE
+function udregnToVinkler() { 
     if (a > 0 && b > 0) {
             if (A > 0){             
                 B = (Math.asin((Math.sin((A/180)*Math.PI)*b)/a))*(180/Math.PI);
@@ -153,7 +148,7 @@ function udregnToVinkler() {    //VIRKER IKKE
 };
 
 //Udregning af en vinkel og 2 sider
-function udregnToSider() {          //VIRKER IKKE
+function udregnToSider() {
     if (A > 0 && B > 0) {
         C = 180 - A - B;                        //udregner vinkel C
         if (a > 0) {                            //udregner side b & c
